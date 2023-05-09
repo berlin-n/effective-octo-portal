@@ -1,0 +1,16 @@
+{% extends 'students/main.html' %}
+
+{% block content %}
+
+<div>
+    {% for module in modules %}
+        <div>
+            <h3>{{module.module_name}} {{module.module_code}}</h3>
+            <h4>{{module.lecturer.last_name}} {{module.lecturer.first_name}}</h4>
+            <a href="{% url 'add_module' module.id %}">Add</a>
+            <hr>
+        </div>
+    {% endfor %}
+</div>
+
+{% endblock content %}

@@ -1,0 +1,40 @@
+{% extends 'students/main.html' %}
+
+{% block content %}
+
+<style>
+    .module-container{
+        display: grid;
+        grid-template-columns: 1fr 3fr;
+    }
+</style>
+
+<div class="module-container">
+
+    <div>
+        <h3>Assessments</h3>
+        {% for assessment in module_assessments %}
+            <div>
+                <p>{{assessment.assessment_name}}</p>
+            </div>
+        {% endfor %}
+    
+    </div>
+
+    <div>
+        <h3>Grade</h3>
+        {% for assessmentScore in score %}
+            <div>
+                <b>
+                    <h3>{{assessmentScore.grade}}</h3>
+                </b>
+            </div>
+        {% endfor %}
+    
+    </div>
+
+</div>
+
+
+
+{% endblock content %}

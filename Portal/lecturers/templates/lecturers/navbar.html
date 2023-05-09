@@ -1,0 +1,6 @@
+<a href="{% url 'lecturer_index' lecturer.id  %}">
+    <h1>LOGO</h1>
+</a>
+<h2>Welcome {{request.user.last_name}} {{request.user.first_name}}</h2>
+<a href="{% url 'logout' %}">Logout</a>
+<hr>

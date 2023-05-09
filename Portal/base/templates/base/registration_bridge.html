@@ -1,0 +1,9 @@
+{% extends 'main.html' %}
+
+{% block content %}
+    <div>
+        <h1>
+            <a href="{% url 'register_student' user.id %}">Student</a> or <a href="{% url 'register_lecturer' user.id %}">Lecturer</a>
+        </h3>
+    </div>
+{% endblock content %}

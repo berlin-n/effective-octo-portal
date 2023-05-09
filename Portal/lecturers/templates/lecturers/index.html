@@ -1,0 +1,39 @@
+{% extends 'lecturers/main.html' %}
+
+{% block content %}
+
+<style>
+    .lecturer-container{
+        display: grid;
+        grid-template-columns: 1fr 3fr;
+    }
+</style>
+
+
+<div>
+    <div class="lecturer-container">
+        <div>
+        {% for lecturer in lecturers %}
+            <div>
+                
+            </div>
+        {% endfor %}
+        </div>
+        
+        <div>
+            <a href="{% url 'create_module' %}">Add Module</a>
+            <div>
+                {% for module in lecturerModules %}
+                    <div>
+                        <h4>
+                            <a href="{% url 'module' module.id %}">{{module.module_name}}</a>
+                        </h4>
+                        <small>{{module.module_code}}</small>
+                        <hr>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+
+{% endblock content %}

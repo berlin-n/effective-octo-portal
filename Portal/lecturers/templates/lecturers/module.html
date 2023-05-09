@@ -1,0 +1,37 @@
+{% extends 'lecturers/main.html' %}
+
+{% block content %}
+
+<style>
+    .module-container{
+        display: grid;
+        grid-template-columns: 1fr 3fr;
+    }
+</style>
+
+<h2>{{module.module_name}}</h2>
+<a href="{% url 'add_assessment' module.id %}">Add Assessment</a>
+<br>
+<a href="{% url 'score_assessment' module.id %}">Score an Assessment</a>
+<div class="module-container">
+    <div>
+    
+        <h3>Students</h3>
+        {% for student in allStudents %}
+            <div>
+                <p><a href="{% url 'module' module.id %}?q={{student.last_name}}">{{student.last_name}}  {{student.first_name}}</a></p>
+            </div>
+        {% endfor %}
+    </div>
+    
+    <div>
+        <h3>Student's Grades</h3>
+        {% for studentScore in score %}
+            <div>
+                <p>{{studentScore.assessment}}  {{studentScore.grade}}</p>
+            </div>
+        {% endfor %}
+    </div>
+</div>
+
+{% endblock content %}
